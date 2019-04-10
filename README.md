@@ -1,1 +1,6 @@
 # CloneCD
+
+Setup:
+
+
+Usage:
