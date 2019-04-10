@@ -1,0 +1,66 @@
+package util;
+
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.util.ArrayList;
+import java.util.List;
+
+public class FileUtil {
+    /**
+     * read files
+     */
+    List<String> fileNames = new ArrayList<>();
+    public List<String> readfile(String filePath, String fileType){
+        try {
+            File file = new File(filePath);
+            if (!file.exists()) {
+                return fileNames;
+            }
+            if (!file.isDirectory()) {
+                String fileName = file.getName();
+                String suffix = fileName.substring(fileName.lastIndexOf(".") + 1);
+                if(suffix.equals(fileType)){
+                    fileNames.add(filePath + File.separator + file);
+                }
+            } else if (file.isDirectory()) {
+                String[] filelist = file.list();
+                for (int i = 0; i < filelist.length; i++) {
+                    File readfile = new File(filePath + File.separator + filelist[i]);
+                    if (!readfile.isDirectory()) {
+                        String fileName = readfile.getName();
+                        String suffix = fileName.substring(fileName.lastIndexOf(".") + 1);
+                        if(suffix.equals(fileType)){
+                            fileNames.add(filePath + File.separator + filelist[i]);
+                        }
+
+                    } else if (readfile.isDirectory()) {
+                        readfile(filePath + File.separator + filelist[i], fileType);
+                    }
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return fileNames;
+    }
+
+
+    public void writeFile(String data, String pathname) {
+        try{
+            File file =new File(pathname);
+            if(!file.exists()){
+                file.createNewFile();
+            }
+            FileWriter fw = new FileWriter(file.getAbsoluteFile());
+            BufferedWriter bw = new BufferedWriter(fw);
+            bw.write(data);
+            bw.close();
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+    }
+
+}
