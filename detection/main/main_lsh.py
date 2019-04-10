@@ -43,17 +43,7 @@ data_size = len(keys)
 word_list = []
 embedding_size = 128
 
-# cloneTheta = 0.022
-# endTheta = 0.033
-# optTheta = 0.02
-# minbeta = 0.60
-# maxbeta = 0.70
-
-# cloneTheta = 0.025
-# endTheta = 0.03
-# optTheta = 0.02
-# minbeta = 0.60
-# maxbeta = 0.70
+# cloneTheta = 0.02
 
 dict_path = os.path.abspath(os.path.dirname(os.getcwd())) + '/dictfile/new/'
 rule_index_path = dict_path + 'ruleindex.txt'
