@@ -1,6 +1,6 @@
 # Teccd
-code clone detection
-2019 IEEE International Conference on Software Maintenance and Evolution (ICSME)
+code clone detection  
+2019 IEEE International Conference on Software Maintenance and Evolution (ICSME)  
 see: https://ieeexplore.ieee.org/document/8918964
 
 ## Setup:
